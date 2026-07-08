@@ -1,0 +1,134 @@
+# =========================
+# General
+# =========================
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*.lock
+!.gitignore
+.DS_Store
+Thumbs.db
+
+# =========================
+# Dart / Flutter
+# =========================
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub/
+.pub-cache/
+build/
+**/build/
+coverage/
+.dartServer/
+
+# Generated
+.generated/
+.flutter-versions
+
+# =========================
+# Android
+# =========================
+android/.gradle/
+android/build/
+android/app/debug/
+android/app/profile/
+android/app/release/
+android/local.properties
+android/key.properties
+*.jks
+*.keystore
+
+# =========================
+# iOS
+# =========================
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/ephemeral/
+ios/Flutter/.last_build_id
+ios/build/
+
+# =========================
+# macOS
+# =========================
+macos/Pods/
+macos/build/
+macos/Flutter/ephemeral/
+
+# =========================
+# Linux
+# =========================
+linux/build/
+
+# =========================
+# Windows
+# =========================
+windows/build/
+
+# =========================
+# Web
+# =========================
+web/.dart_tool/
+
+# =========================
+# IDEs
+# =========================
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# =========================
+# Xcode
+# =========================
+DerivedData/
+*.xcworkspace
+!default.xcworkspace
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+*.pbxuser
+
+# =========================
+# Visual Studio
+# =========================
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# =========================
+# CMake
+# =========================
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+
+# =========================
+# Firebase / Secrets
+# =========================
+google-services.json
+GoogleService-Info.plist
+service-account.json
+firebase-adminsdk*.json
+*.p12
+*.pem
+*.key
+.env
+.env.*
+
+# =========================
+# Misc
+# =========================
+.history/
+.atom/
+.swiftpm/
+.svn/
