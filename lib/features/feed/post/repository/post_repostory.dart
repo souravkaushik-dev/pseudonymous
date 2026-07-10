@@ -35,7 +35,7 @@ class PostRepository {
       anonymousUsername: user.anonymousUsername,
 
       name: user.name,
-      photoUrl: user.photoUrl,
+      avatar: user.avatar,
 
       text: text.trim(),
       imageUrl: imageUrl,

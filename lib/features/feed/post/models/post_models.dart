@@ -10,7 +10,9 @@ class PostModel {
   final String anonymousUsername;
 
   final String name;
-  final String photoUrl;
+
+  /// Built-in avatar
+  final String avatar;
 
   final String text;
   final String imageUrl;
@@ -27,7 +29,7 @@ class PostModel {
     required this.username,
     required this.anonymousUsername,
     required this.name,
-    required this.photoUrl,
+    required this.avatar,
     required this.text,
     required this.imageUrl,
     required this.likeCount,
@@ -41,25 +43,26 @@ class PostModel {
       ) {
     return PostModel(
       id: id,
-      uid: json['uid'] ?? '',
+      uid: json["uid"] ?? "",
 
-      isAnonymous: json['isAnonymous'] ?? false,
+      isAnonymous: json["isAnonymous"] ?? false,
 
-      username: json['username'] ?? '',
+      username: json["username"] ?? "",
       anonymousUsername:
-      json['anonymousUsername'] ?? '',
+      json["anonymousUsername"] ?? "",
 
-      name: json['name'] ?? '',
-      photoUrl: json['photoUrl'] ?? '',
+      name: json["name"] ?? "",
 
-      text: json['text'] ?? '',
-      imageUrl: json['imageUrl'] ?? '',
+      avatar: json["avatar"] ?? "avatar_01",
 
-      likeCount: json['likeCount'] ?? 0,
-      commentCount: json['commentCount'] ?? 0,
+      text: json["text"] ?? "",
+      imageUrl: json["imageUrl"] ?? "",
+
+      likeCount: json["likeCount"] ?? 0,
+      commentCount: json["commentCount"] ?? 0,
 
       createdAt:
-      (json['createdAt'] as Timestamp?)
+      (json["createdAt"] as Timestamp?)
           ?.toDate() ??
           DateTime.now(),
     );
@@ -75,7 +78,8 @@ class PostModel {
       "anonymousUsername": anonymousUsername,
 
       "name": name,
-      "photoUrl": photoUrl,
+
+      "avatar": avatar,
 
       "text": text,
       "imageUrl": imageUrl,
@@ -83,8 +87,7 @@ class PostModel {
       "likeCount": likeCount,
       "commentCount": commentCount,
 
-      "createdAt":
-      FieldValue.serverTimestamp(),
+      "createdAt": FieldValue.serverTimestamp(),
     };
   }
 }

@@ -61,32 +61,31 @@ class ProfileCard extends StatelessWidget {
                 tag: "profile_avatar",
                 child: CircleAvatar(
                   radius: 46.r,
-                  backgroundColor:
-                  AppColors.primary.withOpacity(.08),
-
-                  backgroundImage:
-                  !user.isAnonymousMode &&
-                      user.photoUrl.isNotEmpty
-                      ? NetworkImage(user.photoUrl)
-                      : null,
+                  backgroundColor: AppColors.primary.withOpacity(.08),
 
                   child: user.isAnonymousMode
                       ? Text(
                     "@",
-                    style: theme.textTheme.displayMedium
-                        ?.copyWith(
+                    style: theme.textTheme.displayMedium?.copyWith(
                       color: AppColors.primary,
                       fontWeight: FontWeight.w900,
                     ),
                   )
-                      : user.photoUrl.isEmpty
-                      ? HugeIcon(
-                    icon:
-                    HugeIcons.strokeRoundedUser,
-                    size: 36.sp,
-                    color: AppColors.primary,
-                  )
-                      : null,
+                      : ClipOval(
+                    child: Image.asset(
+                      "assets/avatars/${user.avatar}.png",
+                      width: 92.w,
+                      height: 92.w,
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) {
+                        return HugeIcon(
+                          icon: HugeIcons.strokeRoundedUser,
+                          size: 36.sp,
+                          color: AppColors.primary,
+                        );
+                      },
+                    ),
+                  ),
                 ),
               )
                   .animate()

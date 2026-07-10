@@ -33,10 +33,11 @@ class PublicProfileHeader extends StatelessWidget {
               height: 108,
 
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary.withOpacity(.08),
-
+                color: Theme.of(context)
+                    .colorScheme
+                    .primary
+                    .withOpacity(.08),
                 borderRadius: BorderRadius.circular(34),
-
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(.02),
@@ -51,22 +52,32 @@ class PublicProfileHeader extends StatelessWidget {
 
               child: user.isAnonymousMode
                   ? Center(
-                      child: Text(
-                        "@",
-                        style: Theme.of(context).textTheme.displayMedium
-                            ?.copyWith(
-                              fontWeight: FontWeight.w900,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                      ),
-                    )
-                  : user.photoUrl.isNotEmpty
-                  ? Image.network(user.photoUrl, fit: BoxFit.cover)
-                  : Icon(
-                      Icons.person_rounded,
-                      size: 46,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
+                child: Text(
+                  "@",
+                  style: Theme.of(context)
+                      .textTheme
+                      .displayMedium
+                      ?.copyWith(
+                    fontWeight: FontWeight.w900,
+                    color: Theme.of(context)
+                        .colorScheme
+                        .primary,
+                  ),
+                ),
+              )
+                  : Image.asset(
+                "assets/avatars/${user.avatar}.png",
+                fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) {
+                  return Icon(
+                    Icons.person_rounded,
+                    size: 46,
+                    color: Theme.of(context)
+                        .colorScheme
+                        .primary,
+                  );
+                },
+              ),
             ),
           ),
 

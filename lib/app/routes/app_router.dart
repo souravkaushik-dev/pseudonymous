@@ -4,6 +4,7 @@ import 'package:hi_pseudonymous/features/username/presentation/username_screen.d
 import '../../features/auth/presentation/login/forgot_password_screem.dart';
 import '../../features/auth/presentation/login/login_screen.dart';
 import '../../features/auth/presentation/register/register_Screen.dart';
+import '../../features/avatars/presentation/avatar_screen.dart';
 import '../../features/feed/folloe/follow_list_screen.dart';
 import '../../features/feed/folloe/repository/follow_type.dart';
 import '../../features/feed/public_profile/public-profilescreen.dart';
@@ -147,6 +148,15 @@ final appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.forgotPassword,
       builder: (_, __) => const ForgotPasswordScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.selectAvatar,
+      builder: (context, state) {
+        return SelectAvatarScreen(
+          initialAvatar: (state.extra as String?) ?? "avatar_01",
+          isOnboarding: true,
+        );
+      },
     ),
   ],
 );

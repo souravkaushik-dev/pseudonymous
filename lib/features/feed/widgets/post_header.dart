@@ -58,45 +58,41 @@ class PostHeader extends StatelessWidget {
 
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20.r),
-
                   child: user.isAnonymousMode
                       ? Container(
-                          width: 52.w,
-                          height: 52.w,
-
-                          color: theme.colorScheme.primary.withOpacity(.08),
-
-                          child: Center(
-                            child: Text(
-                              "@",
-                              style: theme.textTheme.headlineSmall?.copyWith(
-                                color: theme.colorScheme.primary,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          ),
-                        )
-                      : user.photoUrl.isNotEmpty
-                      ? Image.network(
-                          user.photoUrl,
-                          width: 52.w,
-                          height: 52.w,
-                          fit: BoxFit.cover,
-                        )
-                      : Container(
-                          width: 52.w,
-                          height: 52.w,
-
-                          color: theme.colorScheme.primary.withOpacity(.08),
-
-                          child: Center(
-                            child: HugeIcon(
-                              icon: HugeIcons.strokeRoundedUser,
-                              size: 24.sp,
-                              color: theme.colorScheme.primary,
-                            ),
+                    width: 52.w,
+                    height: 52.w,
+                    color: theme.colorScheme.primary.withOpacity(.08),
+                    child: Center(
+                      child: Text(
+                        "@",
+                        style: theme.textTheme.headlineSmall?.copyWith(
+                          color: theme.colorScheme.primary,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ),
+                  )
+                      : Image.asset(
+                    "assets/avatars/${user.avatar}.png",
+                    width: 52.w,
+                    height: 52.w,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) {
+                      return Container(
+                        width: 52.w,
+                        height: 52.w,
+                        color: theme.colorScheme.primary.withOpacity(.08),
+                        child: Center(
+                          child: HugeIcon(
+                            icon: HugeIcons.strokeRoundedUser,
+                            size: 24.sp,
+                            color: theme.colorScheme.primary,
                           ),
                         ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ),

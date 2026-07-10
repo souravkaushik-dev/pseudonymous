@@ -1,190 +1,206 @@
-# 🚀 Pseudonymous
+# 👻 Pseudonymous
 
 <div align="center">
 
-### **Privacy First. Identity Optional. Conversations That Matter.**
+<img src="assets/icons/hi_logo.png" width="120"/>
 
-*A modern anonymous social platform built with Flutter & Firebase.*
+# Privacy First. Identity Optional.
 
-![Flutter](https://img.shields.io/badge/Flutter-3.x-blue?logo=flutter)
-![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?logo=dart)
-![Firebase](https://img.shields.io/badge/Firebase-Backend-FFCA28?logo=firebase)
-![Platform](https://img.shields.io/badge/Platforms-Android%20%7C%20iOS%20%7C%20Web%20%7C%20Desktop-success)
-![Status](https://img.shields.io/badge/Status-Active%20Development-brightgreen)
+### A modern anonymous social platform built with Flutter & Firebase.
+
+Share ideas, not identities.
+
+![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?logo=dart&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-Powered-FFCA28?logo=firebase&logoColor=black)
+![Platform](https://img.shields.io/badge/Platform-Android%20|%20iOS-success)
+![License](https://img.shields.io/badge/License-Custom-red)
+![Status](https://img.shields.io/badge/Development-Active-brightgreen)
 
 </div>
 
 ---
 
-# 🌟 About
+# 📖 About
 
-**Pseudonymous** is an anonymous social networking platform where people can freely express their thoughts without revealing their real identity.
+**Pseudonymous** is a privacy-focused social platform where conversations matter more than identities.
 
-The goal is to create a safe, respectful, and privacy-focused community where ideas are valued more than identities.
+Instead of encouraging people to build a public persona, Pseudonymous lets users interact through usernames and customizable built-in avatars, making it easier to share ideas without exposing personal information.
 
-Whether you're sharing experiences, asking for advice, discussing technology, or simply connecting with others, Pseudonymous provides a secure and modern platform for meaningful conversations.
+Whether you're asking questions, sharing experiences, discussing technology, or simply connecting with others, Pseudonymous provides a clean and modern space for meaningful conversations.
 
 ---
 
-# ✨ Current Features
+# ✨ Features
 
 ## 🔐 Authentication
 
-* ✅ Email Authentication
-* ✅ Google Sign-In
-* ✅ User Registration
-* ✅ Secure Login
-* ✅ Logout
-* ✅ Email Verification
-* ✅ Password Reset
+- ✅ Email Authentication
+- ✅ Google Sign-In
+- ✅ Secure Registration
+- ✅ Login & Logout
+- ✅ Email Verification
+- ✅ Password Reset
 
 ---
 
-## 👤 User Profiles
+## 👤 Anonymous Identity
 
-* ✅ Create Username
-* ✅ Edit Profile
-* ✅ Bio Support
-* ✅ User Search
-* ✅ Follow / Unfollow Users
-* ✅ Privacy-Focused Identity
-
----
-
-## 📝 Anonymous Posts
-
-* ✅ Create Posts
-* ✅ Anonymous Posting
-* ✅ Edit Posts
-* ✅ Delete Posts
-* ✅ Rich Feed
-* ✅ Timestamp Support
-* ✅ Post Sharing
+- ✅ Custom Username
+- ✅ Built-in Avatar Selection
+- ✅ Anonymous Mode
+- ✅ Privacy-first Profiles
+- ✅ Bio
+- ✅ Website
+- ✅ Location
 
 ---
 
-## 💬 Social Features
+## 📝 Posts
 
-* ✅ Like Posts
-* ✅ Comments
-* ✅ Replies
-* ✅ Anonymous Messaging
-* ✅ In-App Notifications
+- ✅ Create Posts
+- ✅ Anonymous Posting
+- ✅ Rich Text Posts
+- ✅ Edit Posts
+- ✅ Delete Posts
+- ✅ Post Sharing
+- ✅ Responsive Feed
+
+---
+
+## ❤️ Social
+
+- ✅ Likes
+- ✅ Comments
+- ✅ Replies
+- ✅ Follow / Unfollow
+- ✅ Notifications
+
+---
+
+## 🎨 UI
+
+- ✅ Material Design 3
+- ✅ Responsive Layout
+- ✅ Flutter ScreenUtil+
+- ✅ Smooth Animations
+- ✅ Hero Animations
+- ✅ Dark Theme Ready
 
 ---
 
 ## ☁️ Backend
 
-* ✅ Firebase Authentication
-* ✅ Cloud Firestore
-* ✅ Firebase Storage
-* ✅ Secure User Data
+- ✅ Firebase Authentication
+- ✅ Cloud Firestore
+- ✅ Firebase Cloud Messaging (In Progress)
 
 ---
 
-## 🎨 UI / UX
+# 🖼 Screenshots
 
-* ✅ Material Design 3
-* ✅ Responsive Design
-* ✅ Smooth Navigation
-* ✅ Modern Interface
-* ✅ Dark Theme Ready
-* ✅ Optimized Flutter Architecture
+> Screenshots coming soon.
 
----
+You can place screenshots inside:
 
-# 🚧 Roadmap
+```
+assets/screenshots/
+```
 
-The following features are planned for future releases:
+Example:
 
-### 🔔 Notifications
+```
+README.md
 
-* ⏳ Push Notifications (Firebase Cloud Messaging)
-
-### 👤 User Experience
-
-* ⏳ Avatar Upload
-* ⏳ AI Avatar Generator
-* ⏳ Cover Photos
-* ⏳ Profile Customization
-
-### 🌍 Community
-
-* ⏳ Trending Posts
-* ⏳ Communities
-* ⏳ Hashtags
-* ⏳ Polls
-* ⏳ Bookmarks
-* ⏳ User Badges
-* ⏳ Pinned Posts
-
-### 📷 Media
-
-* ⏳ Image Upload
-* ⏳ Video Upload
-* ⏳ GIF Support
-* ⏳ Voice Notes
-
-### 🛡️ Moderation
-
-* ⏳ Report Posts
-* ⏳ Report Users
-* ⏳ User Blocking
-* ⏳ Spam Detection
-* ⏳ Admin Dashboard
-
-### ⚡ Performance
-
-* ⏳ Offline Support
-* ⏳ Feed Optimization
-* ⏳ Widget Tests
-* ⏳ Unit Tests
-* ⏳ Integration Tests
-* ⏳ CI/CD Pipeline
-* ⏳ Analytics
+assets/
+└── screenshots/
+    ├── login.png
+    ├── feed.png
+    ├── profile.png
+    ├── post.png
+    └── avatar_picker.png
+```
 
 ---
 
-# 📅 Weekly Public Testing Releases
+# 🚀 Roadmap
 
-To keep development transparent and gather community feedback, **new public testing builds will be released every week**.
+## Identity
 
-Each release may include:
-
-* New features
-* Bug fixes
-* Performance improvements
-* UI/UX enhancements
-* Stability updates
-
-Everyone is welcome to download the latest release, test the app, report issues, and suggest improvements.
-
-Community feedback will directly help shape the future of Pseudonymous.
+- ✅ Built-in Avatar System
+- ⏳ Animated Avatars
+- ⏳ AI Avatar Generator
+- ⏳ Avatar Collections
 
 ---
 
-# 🛠️ Tech Stack
+## Community
 
-* Flutter
-* Dart
-* Firebase Authentication
-* Cloud Firestore
-* Firebase Storage
-* Material Design 3
+- ⏳ Trending Posts
+- ⏳ Communities
+- ⏳ Polls
+- ⏳ Bookmarks
+- ⏳ Hashtags
+- ⏳ Mentions
+- ⏳ Profile Verification
+
+---
+
+## Messaging
+
+- ⏳ Real-time Messaging
+- ⏳ Anonymous Chat
+- ⏳ Voice Messages
+- ⏳ Read Receipts
+
+---
+
+## Moderation
+
+- ⏳ Report Users
+- ⏳ Report Posts
+- ⏳ User Blocking
+- ⏳ Spam Detection
+- ⏳ AI Moderation
+
+---
+
+## Performance
+
+- ⏳ Offline Support
+- ⏳ Feed Caching
+- ⏳ Widget Tests
+- ⏳ Unit Tests
+- ⏳ Integration Tests
+- ⏳ GitHub Actions
+- ⏳ Crash Analytics
+
+---
+
+# 🛠 Tech Stack
+
+- Flutter
+- Dart
+- Firebase Authentication
+- Cloud Firestore
+- Firebase Cloud Messaging
+- GoRouter
+- Provider
+- Flutter Animate
+- ScreenUtil+
 
 ---
 
 # 📂 Project Structure
 
-```text
+```
 lib/
-├── core/
-├── models/
+├── app/
+├── features/
+├── shared/
 ├── services/
-├── providers/
-├── screens/
-├── widgets/
-├── utils/
+├── models/
+├── repository/
 └── main.dart
 ```
 
@@ -192,25 +208,25 @@ lib/
 
 # 🚀 Getting Started
 
-Clone the repository:
+Clone the project
 
 ```bash
 git clone https://github.com/souravkaushik-dev/pseudonymous.git
 ```
 
-Move into the project:
+Move into the project
 
 ```bash
 cd pseudonymous
 ```
 
-Install dependencies:
+Install packages
 
 ```bash
 flutter pub get
 ```
 
-Run the application:
+Run
 
 ```bash
 flutter run
@@ -220,113 +236,108 @@ flutter run
 
 # 🤝 Contributing
 
-Contributions are always welcome.
+Contributions are welcome.
 
-Whether you're a:
+You can contribute by:
 
-* Flutter Developer
-* Firebase Developer
-* UI/UX Designer
-* Backend Engineer
-* Open Source Contributor
-* Tester
-* Technical Writer
+- Fixing bugs
+- Improving UI/UX
+- Optimizing performance
+- Adding new features
+- Improving documentation
+- Reviewing pull requests
 
-your contribution can help improve Pseudonymous.
-
-If you're planning to work on a major feature, please open an issue first so we can discuss the implementation.
+If you're planning a major feature, please open an issue first.
 
 ---
 
-# 💌 Join the Team
+# 📬 Join the Team
 
-We're looking for passionate developers who want to build the future of anonymous social networking.
+Interested in helping build **Pseudonymous**?
 
-If you'd like to contribute, collaborate, or become part of the core development team, we'd love to hear from you.
+We're looking for Flutter developers, Firebase developers, UI/UX designers, testers, and open-source contributors.
 
-Please send us an email with:
+📧 **Email**
 
-* Your name
-* GitHub profile
-* Why you'd like to join
+souravkaushik.dev@gmail.com
 
-**Email:** [souravkaushik.dev@gmail.com](mailto:souravkaushik.dev@gmail.com)
+Include:
 
-Let's build something amazing together. 🚀
+- Your Name
+- GitHub Profile
+- Experience
+- Why you'd like to contribute
 
 ---
 
-# 🐞 Bug Reports & Feature Requests
+# 🐞 Issues
 
 Found a bug?
 
-Have an idea?
+Have a feature idea?
 
-Please open a GitHub Issue describing:
+Please open a GitHub Issue including:
 
-* The problem
-* Steps to reproduce
-* Expected behavior
-* Screenshots (if applicable)
-
-Feature suggestions are always welcome.
+- Description
+- Steps to reproduce
+- Expected behavior
+- Screenshots (if applicable)
 
 ---
 
-# ⭐ Support the Project
+# ⭐ Support
 
-If you like this project, you can support it by:
+If you enjoy this project, consider:
 
-* ⭐ Starring the repository
-* 🍴 Forking the project
-* 🐞 Reporting bugs
-* 💡 Suggesting new features
-* 🤝 Contributing code
-* 📢 Sharing the project
+- ⭐ Star the repository
+- 🍴 Fork the project
+- 🐛 Report bugs
+- 💡 Suggest features
+- 🤝 Contribute code
 
-Every contribution helps make Pseudonymous better.
+Every contribution helps improve Pseudonymous.
 
 ---
 
-# 📜 License
+# 📄 License
 
 ## Custom License — All Rights Reserved
 
 Copyright © 2026 Pseudonymous.
 
-This project is provided for **educational, evaluation, collaboration, and development purposes only**.
+This repository is shared for educational, evaluation, and collaboration purposes.
 
-You are welcome to:
+You may:
 
-* View the source code.
-* Learn from the implementation.
-* Submit issues and pull requests.
-* Contribute after approval from the maintainers.
+- View the source code
+- Learn from the implementation
+- Submit issues
+- Submit pull requests
 
-You may **NOT**:
+You may NOT:
 
-* Redistribute this project or its source code.
-* Re-upload this project to another repository or website.
-* Sell or sublicense this project.
-* Use this project or substantial portions of it in any commercial product without prior written permission.
-* Claim this project or any part of it as your own work.
+- Redistribute this repository
+- Re-upload the source code
+- Sell or sublicense the project
+- Use substantial portions in commercial products
+- Claim the project as your own
 
-**All rights are reserved by the project owner.**
+All rights remain with the project owner.
 
 ---
 
 # ❤️ Acknowledgements
 
-Thank you to everyone who stars the repository, reports bugs, contributes code, suggests features, tests weekly releases, or helps improve the project.
+Thanks to everyone who contributes through code, ideas, testing, bug reports, feature requests, and feedback.
 
-Together, we're building a privacy-focused platform where conversations matter more than identities.
+Together we're building a privacy-first social platform where conversations matter more than identities.
 
 ---
 
 <div align="center">
 
-### 🌟 If you like this project, don't forget to give it a Star!
+## ⭐ Star the repository if you like the project!
 
-**Built with ❤️ using Flutter & Firebase**
+Made with ❤️ using Flutter & Firebase
 
 </div>

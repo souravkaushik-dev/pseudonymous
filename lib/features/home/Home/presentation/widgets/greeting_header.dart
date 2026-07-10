@@ -85,17 +85,18 @@ class GreetingHeader extends StatelessWidget {
               ),
             ),
           )
-              : user.photoUrl.isNotEmpty
-              ? Image.network(
-            user.photoUrl,
+              : Image.asset(
+            "assets/avatars/${user.avatar}.png",
             fit: BoxFit.cover,
-          )
-              : Center(
-            child: HugeIcon(
-              icon: HugeIcons.strokeRoundedUser,
-              size: 24.sp,
-              color: theme.colorScheme.primary,
-            ),
+            errorBuilder: (_, __, ___) {
+              return Center(
+                child: HugeIcon(
+                  icon: HugeIcons.strokeRoundedUser,
+                  size: 24.sp,
+                  color: theme.colorScheme.primary,
+                ),
+              );
+            },
           ),
         ),
       ],

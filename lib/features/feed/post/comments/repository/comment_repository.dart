@@ -24,10 +24,23 @@ class CommentRepository {
 
     batch.set(commentRef, {
       "uid": user.uid,
-      "username": user.username,
-      "name": user.name,
-      "photoUrl": user.photoUrl,
+
+      "username": user.isAnonymousMode
+          ? user.anonymousUsername
+          : user.username,
+
+      "name": user.isAnonymousMode
+          ? user.anonymousName
+          : user.name,
+
+      "avatar": user.isAnonymousMode
+          ? user.anonymousAvatar
+          : user.avatar,
+
+      "isAnonymous": user.isAnonymousMode,
+
       "text": text.trim(),
+
       "createdAt": FieldValue.serverTimestamp(),
     });
 

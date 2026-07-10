@@ -122,46 +122,41 @@ class InboxCard extends StatelessWidget {
 
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(22.r),
-
                             child: isAnonymous
                                 ? Container(
-                                    width: 60.w,
-                                    height: 60.w,
-
-                                    color: theme.colorScheme.primary
-                                        .withOpacity(.08),
-
-                                    child: Center(
-                                      child: Text(
-                                        "@",
-                                        style: theme.textTheme.headlineSmall
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.w900,
-                                              color: theme.colorScheme.primary,
-                                            ),
-                                      ),
-                                    ),
-                                  )
-                                : user.photoUrl.isNotEmpty
-                                ? Image.network(
-                                    user.photoUrl,
-                                    width: 60.w,
-                                    height: 60.w,
-                                    fit: BoxFit.cover,
-                                  )
-                                : Container(
-                                    width: 60.w,
-                                    height: 60.w,
-                                    color: theme.colorScheme.primary
-                                        .withOpacity(.08),
-                                    child: Center(
-                                      child: HugeIcon(
-                                        icon: HugeIcons.strokeRoundedUser,
-                                        size: 28.sp,
-                                        color: theme.colorScheme.primary,
-                                      ),
+                              width: 60.w,
+                              height: 60.w,
+                              color: theme.colorScheme.primary.withOpacity(.08),
+                              child: Center(
+                                child: Text(
+                                  "@",
+                                  style: theme.textTheme.headlineSmall?.copyWith(
+                                    fontWeight: FontWeight.w900,
+                                    color: theme.colorScheme.primary,
+                                  ),
+                                ),
+                              ),
+                            )
+                                : Image.asset(
+                              "assets/avatars/${user.avatar}.png",
+                              width: 60.w,
+                              height: 60.w,
+                              fit: BoxFit.cover,
+                              errorBuilder: (_, __, ___) {
+                                return Container(
+                                  width: 60.w,
+                                  height: 60.w,
+                                  color: theme.colorScheme.primary.withOpacity(.08),
+                                  child: Center(
+                                    child: HugeIcon(
+                                      icon: HugeIcons.strokeRoundedUser,
+                                      size: 28.sp,
+                                      color: theme.colorScheme.primary,
                                     ),
                                   ),
+                                );
+                              },
+                            ),
                           ),
                         ),
 

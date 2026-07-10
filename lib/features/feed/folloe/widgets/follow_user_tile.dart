@@ -43,12 +43,39 @@ class FollowUserTile extends StatelessWidget {
                 tag: user.uid,
                 child: CircleAvatar(
                   radius: 28,
-                  backgroundImage: user.photoUrl.isNotEmpty
-                      ? NetworkImage(user.photoUrl)
-                      : null,
-                  child: user.photoUrl.isEmpty
-                      ? const Icon(Icons.person)
-                      : null,
+                  backgroundColor: Theme.of(context)
+                      .colorScheme
+                      .primary
+                      .withOpacity(.08),
+                  child: user.isAnonymousMode
+                      ? Text(
+                    "@",
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineSmall
+                        ?.copyWith(
+                      fontWeight: FontWeight.w900,
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary,
+                    ),
+                  )
+                      : ClipOval(
+                    child: Image.asset(
+                      "assets/avatars/${user.avatar}.png",
+                      width: 56,
+                      height: 56,
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) {
+                        return Icon(
+                          Icons.person,
+                          color: Theme.of(context)
+                              .colorScheme
+                              .primary,
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ),
 

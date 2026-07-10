@@ -3,55 +3,61 @@ class AppUser {
   final String name;
   final String username;
   final String email;
-  final String photoUrl;
+
+  /// Built-in avatar asset
+  final String avatar;
+
   final String bio;
   final int followersCount;
   final int followingCount;
+
   /// Anonymous Mode
   final bool isAnonymousMode;
   final String anonymousName;
   final String anonymousUsername;
   final String anonymousAvatar;
+
   final String website;
   final String location;
 
   const AppUser({
-    required this.website,
-    required this.location,
     required this.uid,
     required this.name,
     required this.username,
     required this.email,
-    required this.photoUrl,
+    required this.avatar,
     required this.bio,
     required this.followersCount,
     required this.followingCount,
-
     required this.isAnonymousMode,
     required this.anonymousName,
     required this.anonymousUsername,
     required this.anonymousAvatar,
+    required this.website,
+    required this.location,
   });
 
   factory AppUser.fromMap(Map<String, dynamic> json) {
     return AppUser(
-      uid: json['uid'] ?? '',
-      name: json['name'] ?? '',
-      username: json['username'] ?? '',
-      email: json['email'] ?? '',
-      photoUrl: json['photoUrl'] ?? '',
-      bio: json['bio'] ?? '',
+      uid: json["uid"] ?? "",
+      name: json["name"] ?? "",
+      username: json["username"] ?? "",
+      email: json["email"] ?? "",
 
-      followersCount: json['followersCount'] ?? 0,
-      followingCount: json['followingCount'] ?? 0,
+      avatar: json["avatar"] ?? "avatar_01",
 
-      isAnonymousMode: json['isAnonymousMode'] ?? false,
-      anonymousName: json['anonymousName'] ?? '',
-      anonymousUsername: json['anonymousUsername'] ?? '',
-      anonymousAvatar: json['anonymousAvatar'] ?? '',
+      bio: json["bio"] ?? "",
 
-      website: json['website'] ?? '',
-      location: json['location'] ?? '',
+      followersCount: json["followersCount"] ?? 0,
+      followingCount: json["followingCount"] ?? 0,
+
+      isAnonymousMode: json["isAnonymousMode"] ?? false,
+      anonymousName: json["anonymousName"] ?? "",
+      anonymousUsername: json["anonymousUsername"] ?? "",
+      anonymousAvatar: json["anonymousAvatar"] ?? "",
+
+      website: json["website"] ?? "",
+      location: json["location"] ?? "",
     );
   }
 
@@ -61,7 +67,9 @@ class AppUser {
       "name": name,
       "username": username,
       "email": email,
-      "photoUrl": photoUrl,
+
+      "avatar": avatar,
+
       "bio": bio,
 
       "followersCount": followersCount,
@@ -82,16 +90,14 @@ class AppUser {
     String? name,
     String? username,
     String? email,
-    String? photoUrl,
+    String? avatar,
     String? bio,
     int? followersCount,
     int? followingCount,
-
     bool? isAnonymousMode,
     String? anonymousName,
     String? anonymousUsername,
     String? anonymousAvatar,
-
     String? website,
     String? location,
   }) {
@@ -100,7 +106,9 @@ class AppUser {
       name: name ?? this.name,
       username: username ?? this.username,
       email: email ?? this.email,
-      photoUrl: photoUrl ?? this.photoUrl,
+
+      avatar: avatar ?? this.avatar,
+
       bio: bio ?? this.bio,
 
       followersCount:

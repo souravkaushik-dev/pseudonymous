@@ -49,59 +49,42 @@ class ProfileHeader extends StatelessWidget {
       child: Column(
           children: [
 
-      ClipRRect(
-      borderRadius: BorderRadius.circular(30.r),
-      child: SizedBox(
-        width: 96.w,
-        height: 96.w,
-
-        child: user.isAnonymousMode
-
-            ? Container(
-          color: theme.colorScheme.primary
-              .withOpacity(.08),
-
-          child: Center(
-            child: Text(
-              "@",
-              style: theme
-                  .textTheme
-                  .displayMedium
-                  ?.copyWith(
-                fontWeight:
-                FontWeight.w900,
-                color: theme
-                    .colorScheme
-                    .primary,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(30.r),
+              child: SizedBox(
+                width: 96.w,
+                height: 96.w,
+                child: user.isAnonymousMode
+                    ? Container(
+                  color: theme.colorScheme.primary.withOpacity(.08),
+                  child: Center(
+                    child: Text(
+                      "@",
+                      style: theme.textTheme.displayMedium?.copyWith(
+                        fontWeight: FontWeight.w900,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                  ),
+                )
+                    : Image.asset(
+                  "assets/avatars/${user.avatar}.png",
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) {
+                    return Container(
+                      color: theme.colorScheme.primary.withOpacity(.08),
+                      child: Center(
+                        child: HugeIcon(
+                          icon: HugeIcons.strokeRoundedUser,
+                          size: 38.sp,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-        )
-
-            : user.photoUrl.isNotEmpty
-
-            ? Image.network(
-          user.photoUrl,
-          fit: BoxFit.cover,
-        )
-
-            : Container(
-          color: theme.colorScheme.primary
-              .withOpacity(.08),
-
-          child: Center(
-            child: HugeIcon(
-              icon: HugeIcons
-                  .strokeRoundedUser,
-              size: 38.sp,
-              color: theme
-                  .colorScheme
-                  .primary,
-            ),
-          ),
-        ),
-      ),
-    ),
 
     SizedBox(height: 22.h),
 

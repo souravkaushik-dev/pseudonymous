@@ -2,19 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_hicons/flutter_hicons.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
-import 'package:hugeicons/hugeicons.dart';
 
 class AvatarSection extends StatelessWidget {
   const AvatarSection({
     super.key,
-    this.photoUrl,
+    required this.avatar,
     this.onTap,
-    this.loading = false,
   });
 
-  final String? photoUrl;
+  final String avatar;
   final VoidCallback? onTap;
-  final bool loading;
 
   @override
   Widget build(BuildContext context) {
@@ -22,127 +19,55 @@ class AvatarSection extends StatelessWidget {
 
     return Column(
       children: [
-
         Hero(
           tag: "profile_avatar",
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: loading ? null : onTap,
+              onTap: onTap,
               borderRadius: BorderRadius.circular(40.r),
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
-
                   AnimatedContainer(
-                    duration: const Duration(
-                      milliseconds: 350,
-                    ),
+                    duration: const Duration(milliseconds: 350),
                     curve: Curves.easeOutCubic,
-
                     width: 120.w,
                     height: 120.w,
-
+                    clipBehavior: Clip.antiAlias,
                     decoration: BoxDecoration(
-                      borderRadius:
-                      BorderRadius.circular(40.r),
-
                       color: theme.colorScheme.surface,
-
+                      borderRadius: BorderRadius.circular(40.r),
                       border: Border.all(
-                        color: theme.colorScheme.primary
-                            .withOpacity(.12),
+                        color: theme.colorScheme.primary.withOpacity(.12),
                         width: 2.w,
                       ),
-
                       boxShadow: [
                         BoxShadow(
-                          color: theme.colorScheme.primary
-                              .withOpacity(.08),
+                          color: theme.colorScheme.primary.withOpacity(.08),
                           blurRadius: 35.r,
                           spreadRadius: -12.r,
-                          offset: Offset(
-                            0,
-                            18.h,
-                          ),
+                          offset: Offset(0, 18.h),
                         ),
                       ],
                     ),
-
-                    clipBehavior: Clip.antiAlias,
-
                     child: AnimatedSwitcher(
-                      duration: const Duration(
-                        milliseconds: 300,
-                      ),
-                      child: loading
-                          ? Center(
-                        key: const ValueKey(
-                          "loading",
-                        ),
-                        child: SizedBox(
-                          width: 28.w,
-                          height: 28.w,
-                          child:
-                          const CircularProgressIndicator(
-                            strokeWidth: 2.4,
-                          ),
-                        ),
-                      )
-                          : photoUrl != null &&
-                          photoUrl!.isNotEmpty
-                          ? Image.network(
-                        photoUrl!,
-                        key: ValueKey(photoUrl),
-
+                      duration: const Duration(milliseconds: 250),
+                      child: Image.asset(
+                        "assets/avatars/$avatar.png",
+                        key: ValueKey(avatar),
                         fit: BoxFit.cover,
-
-                        loadingBuilder: (
-                            context,
-                            child,
-                            progress,
-                            ) {
-                          if (progress == null) {
-                            return child;
-                          }
-
-                          return const Center(
-                            child:
-                            CircularProgressIndicator(),
-                          );
-                        },
-
-                        errorBuilder: (
-                            context,
-                            error,
-                            stackTrace,
-                            ) {
+                        errorBuilder: (_, __, ___) {
                           return Center(
-                            child: HugeIcon(
-                              icon: HugeIcons
-                                  .strokeRoundedUser,
-                              size: 42.sp,
-                              color: theme
-                                  .colorScheme
-                                  .primary,
+                            child: Icon(
+                              Hicons.profile1Bold,
+                              size: 48.sp,
+                              color: theme.colorScheme.primary,
                             ),
                           );
                         },
-                      )
-                          : Center(
-                        key: const ValueKey(
-                          "placeholder",
-                        ),
-                        child: HugeIcon(
-                          icon: HugeIcons
-                              .strokeRoundedUser,
-                          size: 42.sp,
-                          color: theme
-                              .colorScheme
-                              .primary,
-                        ),
                       ),
                     ),
                   ),
@@ -150,46 +75,25 @@ class AvatarSection extends StatelessWidget {
                   Positioned(
                     right: -2.w,
                     bottom: -2.h,
-                    child: AnimatedContainer(
-                      duration: const Duration(
-                        milliseconds: 250,
-                      ),
-
+                    child: Container(
                       width: 42.w,
                       height: 42.w,
-
                       decoration: BoxDecoration(
                         color: theme.colorScheme.primary,
                         shape: BoxShape.circle,
-
                         border: Border.all(
                           color: theme.scaffoldBackgroundColor,
                           width: 3.w,
                         ),
-
                         boxShadow: [
                           BoxShadow(
-                            color: theme.colorScheme.primary
-                                .withOpacity(.25),
+                            color: theme.colorScheme.primary.withOpacity(.25),
                             blurRadius: 16.r,
                           ),
                         ],
                       ),
-
-                      child: loading
-                          ? Center(
-                        child: SizedBox(
-                          width: 16.w,
-                          height: 16.w,
-                          child:
-                          const CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: Colors.white,
-                          ),
-                        ),
-                      )
-                          : Icon(
-                        Hicons.camera1LightOutline,
+                      child: Icon(
+                        Hicons.edit2Bold,
                         size: 20.sp,
                         color: Colors.white,
                       ),
@@ -201,18 +105,16 @@ class AvatarSection extends StatelessWidget {
           ),
         )
             .animate()
-            .fade(
-          duration: 400.ms,
-        )
+            .fade(duration: 400.ms)
             .scale(
           begin: const Offset(.9, .9),
           curve: Curves.easeOutBack,
         ),
 
-        SizedBox(height: 22.h),
+        SizedBox(height: 24.h),
 
         Text(
-          "Profile Photo",
+          "Avatar",
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.w800,
           ),
@@ -224,24 +126,20 @@ class AvatarSection extends StatelessWidget {
         SizedBox(height: 6.h),
 
         Text(
-          loading
-              ? "Uploading..."
-              : "Tap to change your photo",
+          "Choose an anonymous avatar",
           style: theme.textTheme.bodyMedium?.copyWith(
-            color: theme.colorScheme.onSurface
-                .withOpacity(.65),
+            color: theme.colorScheme.onSurface.withOpacity(.65),
           ),
         )
             .animate(delay: 180.ms)
             .fade(),
 
-        SizedBox(height: 6.h),
+        SizedBox(height: 4.h),
 
         Text(
-          "JPG, PNG • Max 5 MB",
+          "Your real identity stays private.",
           style: theme.textTheme.bodySmall?.copyWith(
-            color: theme.colorScheme.onSurface
-                .withOpacity(.45),
+            color: theme.colorScheme.onSurface.withOpacity(.45),
           ),
         )
             .animate(delay: 240.ms)

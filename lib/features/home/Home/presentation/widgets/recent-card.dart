@@ -116,19 +116,31 @@ class RecentPostCard extends StatelessWidget {
                           children: [
                             CircleAvatar(
                               radius: 16.r,
-                              backgroundColor: AppColors.primary.withOpacity(
-                                .08,
-                              ),
-                              backgroundImage: post.photoUrl.isNotEmpty
-                                  ? NetworkImage(post.photoUrl)
-                                  : null,
-                              child: post.photoUrl.isEmpty
-                                  ? Icon(
+                              backgroundColor: AppColors.primary.withOpacity(.08),
+                              child: post.isAnonymous
+                                  ? Text(
+                                "@",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w900,
+                                  color: AppColors.primary,
+                                ),
+                              )
+                                  : ClipOval(
+                                child: Image.asset(
+                                  "assets/avatars/${post.avatar}.png",
+                                  width: 32.w,
+                                  height: 32.w,
+                                  fit: BoxFit.cover,
+                                  errorBuilder: (_, __, ___) {
+                                    return Icon(
                                       Icons.person_rounded,
                                       size: 16.sp,
                                       color: AppColors.primary,
-                                    )
-                                  : null,
+                                    );
+                                  },
+                                ),
+                              ),
                             ),
 
                             SizedBox(width: 10.w),

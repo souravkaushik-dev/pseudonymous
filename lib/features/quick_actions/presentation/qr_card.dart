@@ -84,20 +84,24 @@ class QrCard extends StatelessWidget {
                               ),
                             )
                           : CircleAvatar(
-                              radius: 38.r,
-                              backgroundColor: theme.colorScheme.primary
-                                  .withOpacity(.08),
-                              backgroundImage: profile.photoUrl.isNotEmpty
-                                  ? NetworkImage(profile.photoUrl)
-                                  : null,
-                              child: profile.photoUrl.isEmpty
-                                  ? HugeIcon(
-                                      icon: HugeIcons.strokeRoundedUser,
-                                      size: 30.sp,
-                                      color: theme.colorScheme.primary,
-                                    )
-                                  : null,
-                            ),
+                        radius: 38.r,
+                        backgroundColor: theme.colorScheme.primary.withOpacity(.08),
+                        child: ClipOval(
+                          child: Image.asset(
+                            "assets/avatars/${profile.avatar}.png",
+                            width: 76.w,
+                            height: 76.w,
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) {
+                              return HugeIcon(
+                                icon: HugeIcons.strokeRoundedUser,
+                                size: 30.sp,
+                                color: theme.colorScheme.primary,
+                              );
+                            },
+                          ),
+                        ),
+                      ),
                     ).animate().fade().scale(curve: Curves.easeOutBack),
 
                     SizedBox(height: 18.h),

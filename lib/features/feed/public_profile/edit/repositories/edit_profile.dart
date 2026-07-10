@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 class EditProfileRepository {
   EditProfileRepository._();
@@ -41,26 +38,14 @@ class EditProfileRepository {
     required String name,
     required String username,
     required String bio,
-    required String photoUrl,
+    required String avatar,
   }) async {
     await _db.collection("users").doc(uid).update({
       "name": name,
       "username": username,
       "bio": bio,
-      "photoUrl": photoUrl,
+      "avatar": avatar,
+      "updatedAt": FieldValue.serverTimestamp(),
     });
-  }
-
-  static Future<String> uploadPhoto(
-      File image,
-      ) async {
-    final ref = FirebaseStorage.instance
-        .ref()
-        .child("profile_photos")
-        .child("$uid.jpg");
-
-    await ref.putFile(image);
-
-    return await ref.getDownloadURL();
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:provider/provider.dart';
+import '../../../../../app/routes/app_routes.dart';
 import '../../../../../app/theme/app_colors.dart';
 import '../conroller_all_editprofile/edit_profile-controller.dart';
 import '../models/app_user.dart';
@@ -72,36 +74,40 @@ class EditProfileSheet extends StatelessWidget {
                 child: Column(
                   children: [
                     GestureDetector(
-                      onTap: controller.pickImage,
+                      onTap: () async {
+                        final avatar = await context.push<String>(
+                          AppRoutes.selectAvatar,
+                          extra: controller.selectedAvatar,
+                        );
 
+                        if (avatar == null) return;
+
+                        controller.selectAvatar(avatar);
+                      },
                       child: Stack(
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(28.r),
-
-                            child: controller.selectedImage != null
-                                ? Image.file(
-                                    controller.selectedImage!,
-                                    width: 96.w,
-                                    height: 96.w,
-                                    fit: BoxFit.cover,
-                                  )
-                                : user.photoUrl.isNotEmpty
-                                ? Image.network(
-                                    user.photoUrl,
-                                    width: 96.w,
-                                    height: 96.w,
-                                    fit: BoxFit.cover,
-                                  )
-                                : Container(
-                                    width: 96.w,
-                                    height: 96.w,
-                                    color: AppColors.primary.withOpacity(.08),
+                            child: Image.asset(
+                              "assets/avatars/${controller.selectedAvatar}.png",
+                              width: 96.w,
+                              height: 96.w,
+                              fit: BoxFit.cover,
+                              errorBuilder: (_, __, ___) {
+                                return Container(
+                                  width: 96.w,
+                                  height: 96.w,
+                                  color: AppColors.primary.withOpacity(.08),
+                                  child: Center(
                                     child: HugeIcon(
                                       icon: HugeIcons.strokeRoundedUser,
                                       color: AppColors.primary,
+                                      size: 36.sp,
                                     ),
                                   ),
+                                );
+                              },
+                            ),
                           ),
 
                           Positioned(
@@ -111,7 +117,7 @@ class EditProfileSheet extends StatelessWidget {
                               radius: 16.r,
                               backgroundColor: theme.colorScheme.primary,
                               child: Icon(
-                                Icons.camera_alt,
+                                Icons.edit_rounded,
                                 size: 16.sp,
                                 color: Colors.white,
                               ),

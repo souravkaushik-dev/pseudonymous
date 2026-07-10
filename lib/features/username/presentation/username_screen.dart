@@ -68,7 +68,11 @@ class _UsernameScreenState extends State<UsernameScreen> {
 
       if (!mounted) return;
 
-      context.go(AppRoutes.shell);
+      context.push(
+        AppRoutes.selectAvatar,
+        extra: "avatar_01",
+      );
+
     } catch (e) {
       if (!mounted) return;
 

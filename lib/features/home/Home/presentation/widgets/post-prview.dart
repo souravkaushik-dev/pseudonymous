@@ -109,12 +109,40 @@ class _Popup extends StatelessWidget {
                               children: [
 
                                 CircleAvatar(
-                                  backgroundImage:
-                                  post.photoUrl.isNotEmpty
-                                      ? NetworkImage(
-                                    post.photoUrl,
+                                  radius: 20,
+                                  backgroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .primary
+                                      .withOpacity(.08),
+                                  child: post.isAnonymous
+                                      ? Text(
+                                    "@",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(
+                                      fontWeight: FontWeight.w900,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primary,
+                                    ),
                                   )
-                                      : null,
+                                      : ClipOval(
+                                    child: Image.asset(
+                                      "assets/avatars/${post.avatar}.png",
+                                      width: 40,
+                                      height: 40,
+                                      fit: BoxFit.cover,
+                                      errorBuilder: (_, __, ___) {
+                                        return Icon(
+                                          Icons.person,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
+                                        );
+                                      },
+                                    ),
+                                  ),
                                 ),
 
                                 const SizedBox(width: 12),

@@ -105,49 +105,28 @@ class ChatScreen extends StatelessWidget {
 
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(22.r),
-
-                              child: isAnonymous
-                                  ? Container(
-                                      width: 56.w,
-                                      height: 56.w,
-
-                                      color: theme.colorScheme.primary
-                                          .withOpacity(.08),
-
-                                      child: Center(
-                                        child: Text(
-                                          "@",
-                                          style: theme.textTheme.headlineSmall
-                                              ?.copyWith(
-                                                fontWeight: FontWeight.w900,
-                                                color:
-                                                    theme.colorScheme.primary,
-                                              ),
-                                        ),
-                                      ),
-                                    )
-                                  : user.photoUrl.isNotEmpty
-                                  ? Image.network(
-                                      user.photoUrl,
-                                      width: 56.w,
-                                      height: 56.w,
-                                      fit: BoxFit.cover,
-                                    )
-                                  : Container(
-                                      width: 56.w,
-                                      height: 56.w,
-
-                                      color: theme.colorScheme.primary
-                                          .withOpacity(.08),
-
-                                      child: Center(
-                                        child: HugeIcon(
-                                          icon: HugeIcons.strokeRoundedUser,
-                                          size: 26.sp,
-                                          color: theme.colorScheme.primary,
-                                        ),
+                              child: Image.asset(
+                                isAnonymous
+                                    ? "assets/avatars/${user.anonymousAvatar}.png"
+                                    : "assets/avatars/${user.avatar}.png",
+                                width: 56.w,
+                                height: 56.w,
+                                fit: BoxFit.cover,
+                                errorBuilder: (_, __, ___) {
+                                  return Container(
+                                    width: 56.w,
+                                    height: 56.w,
+                                    color: theme.colorScheme.primary.withOpacity(.08),
+                                    child: Center(
+                                      child: HugeIcon(
+                                        icon: HugeIcons.strokeRoundedUser,
+                                        size: 26.sp,
+                                        color: theme.colorScheme.primary,
                                       ),
                                     ),
+                                  );
+                                },
+                              ),
                             ),
                           ).animate().fade().scale(),
 

@@ -132,60 +132,47 @@ class NotificationCard extends StatelessWidget {
                     "notification_${notification.id}",
 
                     child: ClipRRect(
-                      borderRadius:
-                      BorderRadius.circular(
-                        20.r,
-                      ),
-
+                      borderRadius: BorderRadius.circular(20.r),
                       child: anonymous
-                          ? Container(
-                        width: 58.w,
-                        height: 58.w,
-
-                        color: theme
-                            .colorScheme
-                            .primary
-                            .withOpacity(.08),
-
-                        child: Center(
-                          child: Text(
-                            "@",
-                            style: theme
-                                .textTheme
-                                .headlineSmall
-                                ?.copyWith(
-                              fontWeight:
-                              FontWeight
-                                  .w900,
-
-                              color: theme
-                                  .colorScheme
-                                  .primary,
-                            ),
-                          ),
-                        ),
-                      )
-                          : user.photoUrl.isNotEmpty
-                          ? Image.network(
-                        user.photoUrl,
+                          ? Image.asset(
+                        "assets/avatars/${user.anonymousAvatar}.png",
                         width: 58.w,
                         height: 58.w,
                         fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) {
+                          return Container(
+                            width: 58.w,
+                            height: 58.w,
+                            color: theme.colorScheme.primary.withOpacity(.08),
+                            child: Center(
+                              child: HugeIcon(
+                                icon: HugeIcons.strokeRoundedUser,
+                                size: 28.sp,
+                                color: theme.colorScheme.primary,
+                              ),
+                            ),
+                          );
+                        },
                       )
-                          : Container(
+                          : Image.asset(
+                        "assets/avatars/${user.avatar}.png",
                         width: 58.w,
                         height: 58.w,
-                        color: theme.colorScheme.primary
-                            .withOpacity(.08),
-                        child: Center(
-                          child: HugeIcon(
-                            icon: HugeIcons
-                                .strokeRoundedUser,
-                            size: 28.sp,
-                            color: theme
-                                .colorScheme.primary,
-                          ),
-                        ),
+                        fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) {
+                          return Container(
+                            width: 58.w,
+                            height: 58.w,
+                            color: theme.colorScheme.primary.withOpacity(.08),
+                            child: Center(
+                              child: HugeIcon(
+                                icon: HugeIcons.strokeRoundedUser,
+                                size: 28.sp,
+                                color: theme.colorScheme.primary,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),

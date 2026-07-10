@@ -14,4 +14,5 @@ class AppRoutes {
   static const profile = "/profile";
   static const search = "/search";
   static const forgotPassword = "/forgot-password";
+  static const selectAvatar = "/select-avatar";
 }

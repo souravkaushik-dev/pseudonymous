@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 import 'edit_profile.dart';
 
@@ -15,7 +12,8 @@ class EditProfileController extends ChangeNotifier {
 
   bool usernameAvailable = true;
 
-  String photoUrl = "";
+  /// Selected avatar
+  String selectedAvatar = "avatar_1";
 
   Future<void> load() async {
     loading = true;
@@ -26,7 +24,8 @@ class EditProfileController extends ChangeNotifier {
     nameController.text = data["name"] ?? "";
     usernameController.text = data["username"] ?? "";
     bioController.text = data["bio"] ?? "";
-    photoUrl = data["photoUrl"] ?? "";
+
+    selectedAvatar = data["avatar"] ?? "avatar_1";
 
     usernameController.addListener(_onUsernameChanged);
 
@@ -60,6 +59,11 @@ class EditProfileController extends ChangeNotifier {
         usernameAvailable;
   }
 
+  void selectAvatar(String avatar) {
+    selectedAvatar = avatar;
+    notifyListeners();
+  }
+
   Future<void> save() async {
     if (!canSave) return;
 
@@ -68,42 +72,14 @@ class EditProfileController extends ChangeNotifier {
 
     await EditProfileRepository.save(
       name: nameController.text.trim(),
-      username:
-      usernameController.text.trim().toLowerCase(),
+      username: usernameController.text
+          .trim()
+          .toLowerCase(),
       bio: bioController.text.trim(),
-      photoUrl: photoUrl,
+      avatar: selectedAvatar,
     );
 
     saving = false;
-    notifyListeners();
-  }
-
-  Future<void> updatePhoto(String url) async {
-    photoUrl = url;
-    notifyListeners();
-  }
-
-  Future<void> pickPhoto() async {
-    final picker = ImagePicker();
-
-    final file = await picker.pickImage(
-      source: ImageSource.gallery,
-      imageQuality: 80,
-    );
-
-    if (file == null) return;
-
-    loading = true;
-    notifyListeners();
-
-    final url =
-    await EditProfileRepository.uploadPhoto(
-      File(file.path),
-    );
-
-    photoUrl = url;
-
-    loading = false;
     notifyListeners();
   }
 
